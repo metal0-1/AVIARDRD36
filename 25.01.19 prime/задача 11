@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int K;
+	int h = 0;
+	cin >> K;
+	int *array = new int[K];
+	for (int r = 0; r < K; r++) {
+		cin >> array[i];
+	}
+	for (int r = 0; r < K; r++) {
+		if (array[r] < 2 * array[r-1]) {
+			h++;
+		}
+	}
+	cout << h;
+	return 0;
+}

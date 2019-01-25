@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int B, M;
+	cin >> B >> M;
+	long long *l = new long long[M+1];
+	for (long long i = 0; i <= M; i++) {
+		if (i == B) {
+			l[i] = 1;
+		}
+		else if (i <= B) {
+			l[i] = 0;
+		}
+		else if ((i % 2 == 0) && (i % 3 == 0)) {
+			l[i] = l[i - 1] + l[i / 2] + l[i / 3];
+		}
+		else if ((i % 2 == 0) && (i % 3 != 0)) {
+			l[i] = l[i-1] + l[i/2];
+		}
+		else if ((i % 2 != 0) && (i % 3 == 0)) {
+			l[i] = l[i - 1] + l[i / 3];
+		}
+		else if ((i % 2 != 0) && (i % 3 != 0)) {
+			l[i] = l[i - 1];
+		}
+	}
+	cout << l[M];
+	return 0;
+}

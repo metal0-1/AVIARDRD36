@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int N, M, WWW, Foxbeat;
+	int *array = new int[9];
+	for (int r = 0; r < 9; r++) {
+		array[r] = 0;
+	}
+	cin >> N;
+	for (int r = 0; r < N; r++) {
+		cin >> M;
+		while (M > 0)	{
+			WWW = M % 10;
+			array[WWW]++;
+			M = M / 10;
+		}
+	}
+	Foxbeat = 0;
+	for (int r = 0; r < 9; r++) {
+		if (array[r] > Foxbeat) {
+			Foxbeat = array[r];
+		}
+	}
+	for (int r = 9; r > 0; r--) {
+		if (array[r] == Foxbeat) {
+			cout << r << " ";
+		}
+	}
+	return 0;
+}

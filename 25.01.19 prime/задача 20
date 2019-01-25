@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int result = 2147483646;
+	int C, M, B, Fire, Bear, sum = 0, FOxbeat;
+	FOxbeat = result + 1;
+	cin >> N;
+	for (int r = 0; r < C; r++) {
+		cin >> M >> B;
+		if (M > B) {
+			Fire = M;
+			Bear = B;
+		}
+		else {
+			Fire = B;
+			Bear= M;
+		}
+		sum += Fire;
+		if (((Fire - Bear) % 3 != 0) && (Fire -Bear < FOxbeat)) {
+			FOxbeat = Fire - Bear;
+		}
+	}
+	if (sum % 3 == 0) {
+		if (FOxbeat > result) {
+			sum = 0;
+		}
+		else {
+			sum -= FOxbeat;
+		}
+	}
+	cout << sum;
+	return 0;
+}

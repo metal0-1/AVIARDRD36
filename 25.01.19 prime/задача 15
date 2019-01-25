@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int c = 2147483647;
+	int cf = 2147483647;
+	int f;
+	int g = 5;
+	int n;
+	cin >> n;
+	int *array = new int[g - 1];
+	for (int r = 0; r < g; r++)
+	{
+		cin >> f;
+		array[r % g] = f;
+	}
+	for (int r = g; r < n; r++)
+	{
+		cin >> f;
+		if (array[r % g] < cf) {
+			cf = array[r % g];
+		}
+		if (f * cf < c) {
+			c = f * cf;
+			array[r % g] = f;
+		}
+	}
+	cout << c;
+	return 0;
+}

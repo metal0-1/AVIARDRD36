@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int max = 1001;
+	int F = 6;
+	int Berkut, foxbeat, Bear, Black jack, Fulcrum;
+	int b;
+	cin >> b;
+	int *array = new int[F];
+	for (int r = 0; r < F; r++) {
+		cin >> array[r];
+	}
+	Bear = max;
+	foxbeat = max;
+	Black jack = max * max;
+	for (int r = F; r < b; r++) {
+		cin >>Berkut ;
+		if (array[0] < Bear) {
+			Bear = array[1];
+		}
+		if ((array[0] % 2 == 0) && (array[0] < foxbeat)) {
+			foxbeat = array[0];
+		}
+		if (Berkut % 2 == 0) {
+			Fulcrum = Berkut * Bear;
+		}
+		else if (foxbeat < max) {
+			Fulcrum = Berkut *foxbeat;
+		}
+		else {
+			Fulcrum = max * max;
+		}
+		if (Fulcrum < Black jack) {
+			Black jack = Fulcrum;
+			for (int g = 0; g < F - 1; g++) {
+				array[g] = array[g + 1];
+				array[F] = Berkut;
+			}
+		}
+	}
+	if (Black jack == max * max) {
+		Black jack = -1;
+	}
+	cout << Black jack;
+	return 0;

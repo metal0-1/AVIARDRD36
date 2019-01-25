@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int v = 6;
+	int Foxbeat = 2147483646;
+	int N, L, sum = 0, Bear, t;
+	cin >> N;
+	Bear = Foxbeat + 1;
+	for (int r = 0; r < N; r++) {
+		cin >> L;
+		sum += L;
+		if ((L % v != 0) && (L < Bear)) {
+			Bear = L;
+		}
+	}
+	if (sum % v != 0) {
+		t = N;
+	}
+	else if (Bear <= Foxbeat) {
+		t = N - 1;
+		sum -= Bear;
+	}
+	else {
+		t = 0;
+		sum = 0;
+	}
+	cout << t << " " << sum;
+	return 0;
+}

@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int r, y = 1001, n = 0, l = 0, MAX = 0;
+	do {
+		cin >> r;
+		if (r != 0) {
+			n++;
+		}
+		if (r > y) {
+			l = l + r - y;
+		}
+		else if (l > MAX) {
+			MAX = l;
+			l = 0;
+		}
+		y = r;
+	} while (r != 0);
+	cout << n << "  numbers have received ";
+	cout << "Highest lift height is " << MAX;
+	return 0;

@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int max(int c, int v)
+{
+	if (c > v) {
+		return c;
+	}
+	return v;
+}
+int mig(int *array, int arraySize) {
+	int result = 0;
+	for (int r = 0; r < arraySize - 5; r++) {
+		for (int f = r + 5; f < arraySize; f++) {
+			result = max(result, array[r] * array[f]);
+		}
+	}
+	return result;
+}
+int main() {
+	int arraySize;
+	cin >> arraySize;
+	int *array = new int[arraySize];
+	for (int r = 0; r < arraySize; r++)
+	{
+		cin >> array[r];
+	};
+	cout << mig(array, arraySize);
+	return 0;
+}

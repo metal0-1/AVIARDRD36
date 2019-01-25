@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int FOXBEAT = 100, p, o, b, bear;
+	int  fulcrum;
+	int *a = new int[FOXBEAT - 1];
+	for (int r = 0; r < FOXBEAT - 1; r++) {
+		a[r] = 0;
+	}
+	cin >> p;
+	for (int r = 0; r < p; r++) {
+		cin >> o >> b;
+		 bear = b % o;
+		if (fulcrum > 0) {
+			a[fulcrum] = a[fulcrum] + 1;
+		}
+	}
+	 bear = 1;
+	for (int r = 1;r < FOXBEAT - 1; r++) {
+		if (a[r] >= a[ bear]) {
+			 bear = r;
+		}
+	}
+	if (a[ bear] == 0) {
+		 bear = 0;
+	}
+	cout <<  bear;
+	return 0;
+}

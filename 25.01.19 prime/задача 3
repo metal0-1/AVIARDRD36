@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool sqr(long long b) {
+	long long squareRootN = (long long)(sqrt((double)b) + 0.5);
+	return squareRootN * squareRootN == b;
+}
+int main() {
+	int X, Y;
+	cin >> X >> Y;
+	bool *f = new bool[Y + 1];
+	for (long long r = 0; r <= Y; r++) {
+		if (r == X) {
+			f[r] = 1;
+		}
+		else if (r <= X) {
+			f[r] = 0;
+		}
+		else if ((sqr(r) == true) && (r % 7 == 0) && (r % 10 == 1)) {
+			f[r] = f[r - 9] || f[(int)sqrt(r)] || f[r / 7] || f[(r - 1) / 10];
+		}
+		else if ((sqr(r) == true) && (r % 7 == 0) && (r % 10 != 1)) {
+			f[r] = d[r - 9] || f[(int)sqrt(r)] || f[r / 7];
+		}
+		else if ((sqr(r) == true) && (r % 7 != 0) && (r % 10 == 1)) {
+			f[r] = f[r - 9] || f[(int)sqrt(r)] || f[(r - 1) / 10];
+		}
+		else if ((sqr(r) == true) && (r % 7 != 0) && (r % 10 != 1)) {
+			f[r] = f[r - 9] || f[(int)sqrt(r)];
+		}
+		else if ((sqr(r) == false) && (r % 7 != 0) && (r % 10 != 1)) {
+			f[r] = f[r - 9];
+		}
+		else if ((sqr(r) == false) && (r % 7 == 0) && (r % 10 == 1)) {
+			f[r] = f[r - 9] || f[r / 7] || f[(r - 1) / 10];
+		}
+		else if ((sqr(r) == false) && (r % 7 == 0) && (r % 10 != 1)) {
+			f[r] = f[r - 9] || f[r / 7];
+		}
+		else if ((sqr(r) == false) && (r % 7 != 0) && (r % 10 == 1)) {
+			f[r] = f[r - 9] || f[(r - 1) / 10];
+		}
+
+	}
+	if (f[Y] == 1) {
+		cout << "YEs";
+	}
+	else {
+		cout << "NO";
+	}
+	return 0;
+}

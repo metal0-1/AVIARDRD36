@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int r, t, A, B, X, E, E1, E2;
+	cin >> r;
+	cin >> t;
+	X = 0;
+	E = t;
+	for (int u = 1; u <= r;u++) {
+		cin >> A >> B;
+		X = X + A;
+		E1 = E + B;
+		E2 = X + t;
+		if (E1 < E2) {
+			E = E1;
+		}
+		else {
+			E = E2;
+		}
+	}
+	cout << E;
+	return 0;
+}

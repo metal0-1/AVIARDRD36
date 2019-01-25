@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int V, terc = 1;
+	cin >> V;
+	int *f = new int[V];
+	for (int r = 0; r < V; r++) {
+		cin >> f[r];
+	}
+	for(int r = 0; r < V; r++) {
+		if ((f[r] % 2 != 0) && (f[r] % 3 == 0)) {
+			terc *= f[r];
+		}
+	}
+	cout << terc;
+	return 0;
+}
